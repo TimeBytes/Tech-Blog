@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Blog Title 1",
+    "content": "Content of blog 1",
+    "created_by": 1
+  },
+  {
+    "title": "Blog Title 2",
+    "content": "Content of blog 2",
+    "created_by": 2
+  },
+  {
+    "title": "Blog Title 3",
+    "content": "Content of blog 3",
+    "created_by": 3
+  }
+]
