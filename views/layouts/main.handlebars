@@ -12,27 +12,29 @@
     <title>The Tech Blog</title>
   </head>
   <body>
-    <header class="bg-info">
+    <header
+      class="d-flex flex-column flex-md-row bg-info align-items-center pt-2 pb-md-2 justify-content-md-between"
+    >
       <h1
-        class="ms-5 ps-1 border border-black p-2 mb-2 d-inline-block rounded-4 mt-1"
+        class="width-auto ms-md-5 text-center text-md-start ps-1 border border-black border-4 p-2 mb-2 d-inline-block rounded-4 mt-1"
       >
-        The Tech Blog
+        {{title}}
       </h1>
-      <nav class="d-flex justify-content-end">
-        <ul class="d-flex col-6 text-decoration-none list-unstyled">
-          <li class="col-3 m-auto text-center">
+      <nav class="d-flex justify-content-end col-12 col-md-6">
+        <ul class="d-flex col-12 text-decoration-none list-unstyled">
+          <li class="col-3 text-center">
             <a
               href="/"
               class="text-decoration-none text-success-emphasis hover:text-success fw-bold fs-3"
             >Home</a>
           </li>
-          <li class="col-3 m-auto text-center">
+          <li class="col-6 text-center">
             <a
               href="/dashboard"
               class="text-decoration-none text-success-emphasis hover:text-success fw-bold fs-3"
             >Dashboard</a>
           </li>
-          <li class="col-3 m-auto text-center">
+          <li class="col-3 text-center">
             <a
               href="/login"
               class="text-decoration-none text-success-emphasis hover:text-success fw-bold fs-3"

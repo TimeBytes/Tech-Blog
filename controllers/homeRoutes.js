@@ -8,6 +8,7 @@ router.get("/", async (req, res) => {
       blogpost.get({ plain: true })
     );
     res.render("homepage", {
+      title: "The Tech Blog",
       blogposts,
     });
   } catch (err) {
