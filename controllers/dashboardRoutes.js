@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
     );
 
     res.render("dashboard", {
-      title: "The Tech Blog",
+      title: "Dashboard",
       blogposts,
     });
   } catch (err) {
