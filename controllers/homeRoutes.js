@@ -7,13 +7,9 @@ router.get("/", async (req, res) => {
     const blogposts = blogpostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
-
-    // blogposts.forEach((blogpost) => {
-    //   blogpost.createdAt = formatDate(blogpost.createdAt);
-    // });
-
     res.render("homepage", {
       title: "The Tech Blog",
+      logged_in: req.session.logged_in,
       blogposts,
     });
   } catch (err) {

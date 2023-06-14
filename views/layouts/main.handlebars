@@ -34,12 +34,21 @@
               class="text-decoration-none text-success-emphasis hover:text-success fw-bold fs-3"
             >Dashboard</a>
           </li>
-          <li class="col-3 text-center">
-            <a
-              href="/login"
-              class="text-decoration-none text-success-emphasis hover:text-success fw-bold fs-3"
-            >Login</a>
-          </li>
+          {{#if logged_in}}
+            <li class="col-3 text-center">
+              <a
+                href="/logout"
+                class="text-decoration-none text-success-emphasis hover:text-success fw-bold fs-3"
+              >Logout</a>
+            </li>
+          {{else}}
+            <li class="col-3 text-center">
+              <a
+                href="/login"
+                class="text-decoration-none text-success-emphasis hover:text-success fw-bold fs-3"
+              >Login</a>
+            </li>
+          {{/if}}
         </ul>
       </nav>
     </header>
@@ -56,6 +65,5 @@
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
       crossorigin="anonymous"
     ></script>
-    <script src="/js/signup.js"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { BlogPost } = require("../models");
-const formatDate = require("../utils/helpers");
 
 router.get("/", async (req, res) => {
   try {
@@ -11,7 +10,25 @@ router.get("/", async (req, res) => {
 
     res.render("dashboard", {
       title: "Dashboard",
+      logged_in: req.session.logged_in,
+      view: true,
+      create: false,
+      edit: false,
       blogposts,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/create", async (req, res) => {
+  try {
+    res.render("dashboard", {
+      title: "Dashboard",
+      logged_in: req.session.logged_in,
+      view: false,
+      create: true,
+      edit: false,
     });
   } catch (err) {
     res.status(500).json(err);
