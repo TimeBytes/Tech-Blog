@@ -1,8 +1,8 @@
-{{#each blogposts as |post|}}
-  <div class="col-12 col-md-8 m-auto align-center mt-5">
+ {{#each blogposts as |post|}}
+  <div class="col-12 col-md-8 m-auto align-center mt-5  border border-black rounded-4">
     <h2
-      class="text-center border border-black bg-info m-0 p-2"
+      class="text-center bg-info m-0 p-2 rounded-top-4"
     >{{post.title}}</h2>
-    <p class="text-center border border-black p-3">{{post.content}}</p>
+    <p class="text-center p-3 m-0">{{post.content}}</p>
   </div>
 {{/each}}

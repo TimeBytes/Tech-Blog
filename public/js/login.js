@@ -8,7 +8,7 @@ loginBtn.addEventListener("click", (e) => {
     username: username.value,
     password: password.value,
   };
-  fetch("/login", {
+  fetch("/api/user/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
