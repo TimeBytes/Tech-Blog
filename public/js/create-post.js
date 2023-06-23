@@ -4,8 +4,6 @@ const postContent = document.getElementById("create-content");
 
 submitNewPostBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log(postTitle.value);
-  console.log(postContent.value);
   fetch("/api/blogpost/create-post", {
     method: "POST",
     headers: {

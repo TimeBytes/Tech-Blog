@@ -14,7 +14,7 @@ router.post("/create-post", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/update-post/:id", async (req, res) => {
   try {
     const updateBlogPost = await BlogPost.update(req.body, {
       where: {
