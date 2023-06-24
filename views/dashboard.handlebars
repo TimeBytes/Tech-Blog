@@ -9,22 +9,15 @@
 
 {{#each blogposts as |post|}}
   <div
+    data-id="{{post.id}}"
     class="col-12 col-md-8 m-auto align-center mt-5 border border-black rounded-4"
   >
-    <h2 class="text-center bg-info m-0 p-2 rounded-top-4">{{post.title}}</h2>
-    <p class="text-center p-3 m-0">{{post.content}}</p>
-    <div class="d-flex justify-content-center">
-      <a
-        href="/update-post/{{post.id}}"
-        class="btn btn-primary m-2"
-        type="submit"
-      >Edit</a>
-      <button
-        id="delete-post-btn"
-        class="btn btn-danger m-2"
-        data-id="{{post.id}}"
-        type="submit"
-      >Delete</button>
+    <div
+      class="d-flex justify-content-between bg-info m-0 p-2 rounded-4 open-post-btn"
+      data-id="{{post.id}}"
+    >
+      <h2 data-id="{{post.id}}">{{post.title}}</h2>
+      <h5 data-id="{{post.id}}">{{format_date post.createdAt}}</h5>
     </div>
   </div>
 {{/each}}

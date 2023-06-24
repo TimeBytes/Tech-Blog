@@ -40,6 +40,30 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+router.get("/my-post/:id", withAuth, async (req, res) => {
+  try {
+    let id = req.params.id;
+    const blogpostData = await BlogPost.findOne({
+      where: { id },
+      include: [
+        {
+          model: Comment,
+          attributes: ["content", "created_by", "createdAt", "id"],
+          include: [{ model: User, attributes: ["username"] }],
+        },
+      ],
+    });
+    const blogpost = blogpostData.get({ plain: true });
+    res.render("view-my-post", {
+      title: "My Post",
+      logged_in: req.session.logged_in,
+      blogpost,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/create-post", withAuth, async (req, res) => {
   try {
     res.render("create-post", {

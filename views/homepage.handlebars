@@ -4,12 +4,11 @@
     class="col-12 col-md-8 m-auto align-center mt-5 border border-black rounded-4"
   >
     <div
-      class="d-flex justify-content-between bg-info m-0 p-2 rounded-4"
-      id="add-comment-btn"
+      class="d-flex justify-content-between bg-info m-0 p-2 rounded-4 add-comment-btn"
       data-id="{{post.id}}"
     >
-      <h2>{{post.title}}</h2>
-      <h5>{{format_date post.createdAt}}</h5>
+      <h2 data-id="{{post.id}}">{{post.title}}</h2>
+      <h5 data-id="{{post.id}}">{{format_date post.createdAt}}</h5>
     </div>
   </div>
 {{/each}}
