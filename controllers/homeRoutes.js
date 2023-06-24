@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const { BlogPost, User } = require("../models");
+const { BlogPost, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
-const formatDate = require("../utils/helpers");
 
 // GET all blogposts for homepage
 router.get("/", async (req, res) => {
@@ -12,7 +11,6 @@ router.get("/", async (req, res) => {
     const blogposts = blogpostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
-    console.log(blogposts);
     res.render("homepage", {
       title: "The Tech Blog",
       logged_in: req.session.logged_in,
@@ -25,7 +23,9 @@ router.get("/", async (req, res) => {
 
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    const blogpostData = await BlogPost.findAll({});
+    const blogpostData = await BlogPost.findAll({
+      where: { created_by: req.session.user_id },
+    });
     const blogposts = blogpostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
@@ -59,6 +59,63 @@ router.get("/update-post/:id", withAuth, async (req, res) => {
       title: "Edit Post",
       logged_in: req.session.logged_in,
       blogpost,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/add-comment/:id", async (req, res) => {
+  try {
+    let id = req.params.id;
+    const blogpostData = await BlogPost.findOne({
+      where: { id },
+      include: [
+        { model: User, attributes: ["username"] },
+        {
+          model: Comment,
+          attributes: ["content", "created_by", "createdAt", "id"],
+          include: [{ model: User, attributes: ["username"] }],
+        },
+      ],
+    });
+    const blogpost = blogpostData.get({ plain: true });
+    if (req.session.logged_in) {
+      let username = await User.findOne({
+        where: { id: req.session.user_id },
+        attributes: ["username"],
+      });
+      username = username.get({ plain: true });
+      res.render("comment", {
+        title: "Add Comment",
+        logged_in: req.session.logged_in,
+        blogpost,
+        username,
+      });
+    } else {
+      res.render("comment", {
+        title: "Tech Posts",
+        logged_in: req.session.logged_in,
+        blogpost,
+      });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/update-comment/:id", async (req, res) => {
+  try {
+    let id = req.params.id;
+    const commentData = await Comment.findOne({
+      where: { id },
+      include: [{ model: User, attributes: ["username"] }],
+    });
+    const comment = commentData.get({ plain: true });
+    res.render("update-comment", {
+      title: "Update Comment",
+      logged_in: req.session.logged_in,
+      comment,
     });
   } catch (err) {
     res.status(500).json(err);

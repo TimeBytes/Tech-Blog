@@ -1,6 +1,11 @@
-const addCommentBtn = document.getElementById("add-comment-btn");
+const addCommentBtn = document.querySelectorAll("#add-comment-btn");
 
 
-addCommentBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.target
+addCommentBtn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    let id = e.target.getAttribute("data-id");
+    window.location.href = "/add-comment/"+id;
+  });
+});
+

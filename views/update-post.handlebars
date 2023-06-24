@@ -3,10 +3,26 @@
   <div>
     <form class="d-flex flex-column border border-black p-3">
       <label class="m-2"> Title </label>
-      <textarea id="updated-title" class="m-2" rows="1" placeholder="{{blogpost.title}}"></textarea>
-      <label class="m-2"> Content </label> 
-      <textarea id="updated-content" class="m-2" rows="5" placeholder="{{blogpost.content}}" value="blogpost.content"></textarea>
-      <button id="submit-update-btn" class="btn btn-primary m-2 align-self-center" type="submit" data-id="{{blogpost.id}}">Update Post</button>
+      <input
+        id="updated-title"
+        class="m-2"
+        rows="1"
+        placeholder="{{blogpost.title}}"
+        value="{{blogpost.title}}"
+      ></input>
+      <label class="m-2"> Content </label>
+      <textarea
+        id="updated-content"
+        class="m-2"
+        rows="5"
+        placeholder="{{blogpost.content}}"
+      >{{blogpost.content}}</textarea>
+      <button
+        id="submit-update-btn"
+        class="btn btn-primary m-2 align-self-center"
+        type="submit"
+        data-id="{{blogpost.id}}"
+      >Update Post</button>
     </form>
   </div>
 </div>

@@ -27,4 +27,17 @@ router.put("/update-post/:id", async (req, res) => {
   }
 });
 
+router.delete("/delete/:id", async (req, res) => {
+  try {
+    const deleteBlogPost = await BlogPost.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(deleteBlogPost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;

@@ -8,6 +8,10 @@ loginBtn.addEventListener("click", (e) => {
     username: username.value,
     password: password.value,
   };
+  if (!data.username || !data.password) {
+    alert("Please enter a username and password");
+    return;
+  }
   fetch("/api/user/login", {
     method: "POST",
     headers: {
@@ -16,7 +20,8 @@ loginBtn.addEventListener("click", (e) => {
     body: JSON.stringify(data),
   }).then((response) => {
     if (response.status === 200) {
-      window.location.href = "/";
+      console.log("success");
+      window.location.href = "/dashboard";
     } else {
       alert("Invalid username or password");
     }
