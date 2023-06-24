@@ -11,13 +11,17 @@
   <div
     data-id="{{post.id}}"
     class="col-12 col-md-8 m-auto align-center mt-5 border border-black rounded-4"
+    role="button"
   >
     <div
       class="d-flex justify-content-between bg-info m-0 p-2 rounded-4 open-post-btn"
       data-id="{{post.id}}"
+      role="button"
     >
-      <h2 data-id="{{post.id}}">{{post.title}}</h2>
-      <h5 data-id="{{post.id}}">{{format_date post.createdAt}}</h5>
+      <h2 data-id="{{post.id}}" role="button">{{post.title}}</h2>
+      <h5 data-id="{{post.id}}" role="button">{{format_date
+          post.createdAt
+        }}</h5>
     </div>
   </div>
 {{/each}}
