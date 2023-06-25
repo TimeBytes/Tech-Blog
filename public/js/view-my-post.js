@@ -1,7 +1,6 @@
 const deletePostBtn = document.getElementById("delete-post-btn");
 
 deletePostBtn.addEventListener("click", (e) => {
-  console.log("hello");
   e.preventDefault();
   let id = e.target.getAttribute("data-id");
   fetch("/api/blogpost/delete/" + id, {

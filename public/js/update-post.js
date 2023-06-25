@@ -16,7 +16,9 @@ submitUpdateBtn.addEventListener("click", async (e) => {
       },
     });
     if (response.ok) {
-      document.location.replace("/dashboard");
+      document.location.replace(
+        "/my-post/" + localStorage.getItem("mypost-id")
+      );
     } else {
       alert("Failed to update post");
     }

@@ -40,7 +40,7 @@
 {{/each}}
 
 {{#if logged_in}}
-  <div class="col-12 col-md-8 m-auto align-center mt-5">
+  <div class="col-12 col-md-8 m-auto mt-5">
     <h2 class="text-center border border-black bg-info m-0 p-2">Add Comment</h2>
     <div>
       <form class="d-flex flex-column border border-black p-3">
@@ -55,6 +55,11 @@
       </form>
     </div>
   </div>
-
+{{else}}
+  <div class="d-flex m-auto mt-5">
+    <p class="d-flex flex-column border border-black p-3 text-center">
+      <a href="/login">Login</a>
+      before you can leave a comment</p>
+  </div>
 {{/if}}
 <script src="/js/comment.js"></script>
