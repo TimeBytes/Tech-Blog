@@ -31,7 +31,7 @@ On the dashboard this is also a "+ New Post" button which will bring up a form t
 
 ![screenshot of home screen](./public/images/screenshot-create-post.png)
 
-Live Deployed URL: https://boiling-falls-27749-5f19ea8ff128.herokuapp.com/create-post  
+Live Deployed URL: https://boiling-falls-27749-5f19ea8ff128.herokuapp.com
 GitHub Repo: https://github.com/TimeBytes/Tech-Blog/
 
 ## Credits
